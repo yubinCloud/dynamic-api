@@ -1,0 +1,15 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+
+### Send POST request with json body
+POST http://127.0.0.1:7100/dynamic/find-role
+Content-Type: application/json

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  dynamicapi-worker:
+    build:
+      context: ./worker
+    container_name: dynamicapi-worker
+    hostname: dynamicapi-worker
+    image: dynamicapi-worker
+    ports:
+      - 7100:7100
+    environment:
+      - ENV_FOR_DYNACONF=production
+    healthcheck:
+      test: ["CMD", "wget http://127.0.0.1:7100/health/live -q -O /dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
